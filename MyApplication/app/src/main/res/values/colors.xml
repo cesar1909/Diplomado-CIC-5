@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#DF64F7</color>
+    <color name="colorPrimaryDark">#A94DC0</color>
+    <color name="colorAccent">#00BCD4</color>
+
+    <color name="miRojo">#C50707</color>
+    <color name="miVerde">#109405</color>
+
+</resources>

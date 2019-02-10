@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:shadowColor="#332E11"
+        android:shadowRadius="10"
+        android:text="Hello World!"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#C935DA"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/etInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#C1C3F5"
+        android:hint="Usuario:"
+        android:text="Texto!"
+        android:textColor="#005C09"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btnBoton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#488BCF"
+        android:text="Este es un botón"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/ivImage"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#123"
+        android:src="@drawable/flecha_izq" />
+
+    <ImageButton
+        android:id="@+id/ibBoton"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/video" />
+
+    <CheckBox
+        android:id="@+id/cbCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Acepto Términos y Condiciones" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:text="Recibir Promociones" />
+
+    <RadioGroup
+        android:id="@+id/rgRadios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbUno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UNO" />
+
+        <RadioButton
+            android:id="@+id/rbDos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="DOS" />
+
+        <RadioButton
+            android:id="@+id/rbTres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TRES" />
+    </RadioGroup>
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+

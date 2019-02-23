@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="app_name">EN ESPAÑOL</string>
+
+    <string name="cadena1">La tierra es de quien la trabaja</string>
+
+    <string name="cadena2">Tierra y Libertad</string>
+
+    <string name="cadena3">El principito</string>
+
+    <string name="cadena4">Llano en llamas</string>
+
+    <string name="cadena5">OTRO VALOR</string>
+
+    <string name="cadenaDefault">DEFAULT ES</string>
+
+</resources>

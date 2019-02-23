@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                         new Intent(MainActivity.this,
                                 DetailActivity.class);
 
-                intent.putExtra("BOOK", item);
+                intent.putExtra(DetailActivity.BOOK_ARG, item);
 
                 startActivity(intent);
 

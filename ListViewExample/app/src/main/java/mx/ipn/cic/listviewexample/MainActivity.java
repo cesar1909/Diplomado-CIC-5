@@ -1,5 +1,6 @@
 package mx.ipn.cic.listviewexample;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         //ListView lvBooks = findViewById(R.id.lvBooks);
         GridView gvBooks = findViewById(R.id.gvBooks);
-        
+
         //BooksAdapter adapter = new BooksAdapter(elements);
         BooksGridAdapter adapter = new BooksGridAdapter(elements);
 
@@ -45,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,
                         "Item: " + item,
                         Toast.LENGTH_LONG).show();
+
+                Intent intent =
+                        new Intent(MainActivity.this,
+                                DetailActivity.class);
+
+                intent.putExtra("BOOK", item);
+
+                startActivity(intent);
 
             }
         });

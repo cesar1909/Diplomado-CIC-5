@@ -8,4 +8,20 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="CustomTheme" parent="AppTheme">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/miColor</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:fontFamily">monospace</item>
+    </style>
+
+    <style name="MyTextView">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">50sp</item>
+        <item name="android:textColor">@color/tvColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">cursive</item>
+    </style>
+
 </resources>

@@ -9,6 +9,8 @@ import mx.ipn.cic.listviewexample.model.BookModel;
 
 public class DetailActivity extends AppCompatActivity {
 
+    public static String BOOK_ARG = "BOOK_ARG";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,7 +19,7 @@ public class DetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         BookModel bookModel =
-                (BookModel) intent.getSerializableExtra("BOOK");
+                (BookModel) intent.getSerializableExtra(BOOK_ARG);
 
         TextView tvId = findViewById(R.id.tvId);
         TextView tvTitle = findViewById(R.id.tvTitle);

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">IN ENGLISH</string>
+
+    <string name="cadena1">The land belongs to those who work it</string>
+
+    <string name="cadena2">Earth and Freedom</string>
+
+    <string name="cadena3">The little Prince</string>
+
+    <string name="cadena4">Land in flames</string>
+
+    <string name="cadena5">OTHER VALUE</string>
+
+    <string name="cadenaDefault">DEFAULT EN</string>
+
+</resources>

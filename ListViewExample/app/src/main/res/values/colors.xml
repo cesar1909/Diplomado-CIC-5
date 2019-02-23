@@ -4,5 +4,8 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <color name="miColor">#34AA36</color>
+    <color name="miColor">#0D6B0F</color>
+
+    <color name="tvColor">#075BB3</color>
+
 </resources>

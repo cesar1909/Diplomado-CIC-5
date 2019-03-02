@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="@style/DetailStyle"
+    tools:context=".fragments.DetailFragment">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Título" />
+
+    <TextView
+        android:id="@+id/tvAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Autor" />
+
+    <TextView
+        android:id="@+id/tvPages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Páginas" />
+
+    <TextView
+        android:id="@+id/tvEditorial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Editorial" />
+
+</LinearLayout>

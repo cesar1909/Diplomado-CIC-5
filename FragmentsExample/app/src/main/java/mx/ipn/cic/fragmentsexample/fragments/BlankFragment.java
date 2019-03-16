@@ -39,7 +39,11 @@ public class BlankFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                SecondFragment secondFragment = new SecondFragment();
+//                SecondFragment secondFragment = new SecondFragment();
+//                secondFragment.setCadena("Hola Mundo!");
+
+                SecondFragment secondFragment =
+                        SecondFragment.newInstance("Hola Mundo!");
 
                 FragmentManager fragmentManager = getFragmentManager();
 

@@ -4,6 +4,7 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
 
 import java.util.List;
 
@@ -27,6 +28,20 @@ public interface DocumentDao {
     @Insert
     void insert(DocumentEntity document);
 
+    @Update
+    void update(DocumentEntity document);
+
     @Delete
     void delete(DocumentEntity document);
+
+    @Query("DELETE FROM document WHERE did IN (:did)")
+    void deleteByParam(int did);
+
+    @Query("DELETE FROM document WHERE user_id IN (:userId)")
+    int deleteByUserId(int userId);
+
 }
+
+
+
+

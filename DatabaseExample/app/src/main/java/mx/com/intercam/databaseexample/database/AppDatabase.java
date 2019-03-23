@@ -16,7 +16,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract UserDao getUserDao();
 
-    public abstract DocumentDao documentDao();
+    public abstract DocumentDao getDocumentDao();
 
     private static AppDatabase instance;
 

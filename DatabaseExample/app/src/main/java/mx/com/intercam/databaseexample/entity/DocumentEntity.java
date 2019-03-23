@@ -5,11 +5,13 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "document",
         foreignKeys = @ForeignKey(entity = UserEntity.class,
                 parentColumns = "uid",
                 childColumns = "user_id"))
-public class DocumentEntity {
+public class DocumentEntity implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "did")
@@ -22,22 +24,22 @@ public class DocumentEntity {
     private String name;
 
     @ColumnInfo(name = "user_id")
-    private int user_id;
+    private int userId;
 
     public DocumentEntity() {
     }
 
-    public DocumentEntity(String imagePath, String name, int user_id) {
+    public DocumentEntity(String imagePath, String name, int userId) {
         this.imagePath = imagePath;
         this.name = name;
-        this.user_id = user_id;
+        this.userId = userId;
     }
 
-    public DocumentEntity(int id, String imagePath, String name, int user_id) {
+    public DocumentEntity(int id, String imagePath, String name, int userId) {
         this.id = id;
         this.imagePath = imagePath;
         this.name = name;
-        this.user_id = user_id;
+        this.userId = userId;
     }
 
     public int getId() {
@@ -64,12 +66,12 @@ public class DocumentEntity {
         this.name = name;
     }
 
-    public int getUser_id() {
-        return this.user_id;
+    public int getUserId() {
+        return this.userId;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     @Override
@@ -78,7 +80,7 @@ public class DocumentEntity {
                 "id=" + id +
                 ", imagePath='" + imagePath + '\'' +
                 ", name='" + name + '\'' +
-                ", user_id=" + user_id +
+                ", userId=" + userId +
                 '}';
     }
 }

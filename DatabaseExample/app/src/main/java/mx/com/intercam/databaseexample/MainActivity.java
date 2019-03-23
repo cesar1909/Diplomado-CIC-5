@@ -6,8 +6,10 @@ import android.util.Log;
 
 import java.util.List;
 
+import mx.com.intercam.databaseexample.dao.DocumentDao;
 import mx.com.intercam.databaseexample.dao.UserDao;
 import mx.com.intercam.databaseexample.database.AppDatabase;
+import mx.com.intercam.databaseexample.entity.DocumentEntity;
 import mx.com.intercam.databaseexample.entity.UserEntity;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Se obtiene la "implementación" del UserDao
         UserDao userDao = db.getUserDao();
+        DocumentDao documentDao = db.getDocumentDao();
 
         userDao.insert(user);
 
@@ -38,7 +41,21 @@ public class MainActivity extends AppCompatActivity {
 
             Log.d(TAG, u.toString());
 
+            //Para cada usuario generamos 3 documentos
+            for (int i = 0; i < 3; i++) {
+
+                DocumentEntity document =
+                        new DocumentEntity(
+                                "Path " + i,
+                                "Archivo " + i,
+                                u.getId());
+
+                documentDao.insert(document);
+
+            }
+
         }
+
 
     }
 }

@@ -88,3 +88,4 @@ Thumbs.db
 
 # jME (binaries)
 *.so
+*.iml

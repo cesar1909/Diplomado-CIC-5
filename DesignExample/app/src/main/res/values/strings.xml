@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">DesignExample</string>
+
+    <string name="message">Este es el mensaje</string>
+
+    <string name="yes_button">Aceptar</string>
+
+    <string name="cancel_button">Cancelar</string>
+
+    <string name="neutral_button">Posponer</string>
+</resources>

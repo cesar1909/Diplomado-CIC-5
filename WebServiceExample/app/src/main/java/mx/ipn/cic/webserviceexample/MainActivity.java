@@ -1,18 +1,19 @@
 package mx.ipn.cic.webserviceexample;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.widget.Toast;
 
-import mx.ipn.cic.webserviceexample.networking.INetworkingListener;
-import mx.ipn.cic.webserviceexample.networking.NetworkingManager;
+import mx.ipn.cic.webserviceexample.fragments.UserListFragment;
 
 public class MainActivity extends AppCompatActivity {
 
     private static String TAG = MainActivity.class.getName();
 
     public static MainActivity instance;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,35 +22,20 @@ public class MainActivity extends AppCompatActivity {
         instance = this;
 
         setContentView(R.layout.activity_main);
-    }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
+        if (savedInstanceState == null) {
 
-        NetworkingManager.getInstance().getAll(
-                new INetworkingListener() {
-                    @Override
-                    public void onSuccess(Object result) {
+            Fragment userListFragment = UserListFragment.newInstance();
 
-                        //TODO Imprimir la respuesta
-                        //      Mostrar en una ListView
-                        Log.i(TAG, result.toString());
+            FragmentManager fragmentManager = getSupportFragmentManager();
 
-                    }
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
 
-                    @Override
-                    public void onError(String error) {
+            transaction.add(R.id.container, userListFragment);
 
-                        Toast.makeText(
-                                MainActivity.this,
-                                error,
-                                Toast.LENGTH_LONG)
-                                .show();
+            transaction.commit();
 
-                    }
-                }
-        );
+        }
 
     }
 }

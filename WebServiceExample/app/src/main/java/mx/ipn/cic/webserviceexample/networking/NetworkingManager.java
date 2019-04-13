@@ -8,6 +8,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -56,8 +58,6 @@ public class NetworkingManager {
                             @Override
                             public void onResponse(JSONArray response) {
 
-                                //TODO Generar Objetos de dominio
-
                                 List<UserModel> list = new ArrayList<>();
                                 for (int i = 0; i < response.length(); i++) {
 
@@ -66,11 +66,11 @@ public class NetworkingManager {
                                         JSONObject json = response.getJSONObject(i);
 
                                         UserModel user = new UserModel(
-                                                json.getInt("id"),
+                                                json.getString("_id"),
                                                 json.getString("name"),
                                                 json.getString("lastname"),
                                                 json.getInt("age"),
-                                                json.getString("mainAddress")
+                                                json.getString("address")
                                         );
 
                                         list.add(user);
@@ -102,12 +102,122 @@ public class NetworkingManager {
 
                         Map<String, String> headers = new HashMap<>();
                         headers.put("Content-Type", "application/json");
+                        headers.put("Authorization", "Basic a2lkX1NrbU5uS1VLTjo5N2I2YTk4Y2FhZDA0ZDg0ODdkZGVlMjY2ZTc3NmNkMQ==");
 
                         return headers;
                     }
                 };
 
         this.volleyQueue.add(request); //Se ejecuta el consumo del WS
+
+    }
+
+    public void delete(UserModel user,
+                       final INetworkingListener listener) {
+
+        String url = Constants.DELETE_USER.replace("{USER_ID}", user.getId());
+
+        StringRequest request = new StringRequest(
+                Request.Method.DELETE,
+                url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        Log.i(TAG, response);
+
+                        try {
+
+                            JSONObject json = new JSONObject(response);
+                            int count = json.getInt("count");
+
+                            listener.onSuccess(count);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+
+                            listener.onError("Ocurrió un error al consumir el WS");
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        listener.onError(error.getMessage());
+
+                    }
+                }) {
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Content-Type", "application/json");
+                headers.put("Authorization", "Basic a2lkX1NrbU5uS1VLTjo5N2I2YTk4Y2FhZDA0ZDg0ODdkZGVlMjY2ZTc3NmNkMQ==");
+
+                return headers;
+            }
+        };
+
+        this.volleyQueue.add(request);
+
+    }
+
+    public void update(UserModel user, final INetworkingListener listener) {
+
+        String url = Constants.UPDATE_USER.replace("{USER_ID}", user.getId());
+
+        JSONObject jsonRequest = new JSONObject();
+        try {
+
+            //Se arma la estructura JSON a enviar para la actualización.
+            jsonRequest.put("name", user.getName());
+            jsonRequest.put("lastname", user.getLastname());
+            jsonRequest.put("age", user.getAge());
+            jsonRequest.put("address", user.getMainAddress());
+
+        } catch (JSONException e) {
+            listener.onError(e.getMessage());
+
+            return;
+        }
+
+        JsonObjectRequest request = new JsonObjectRequest(
+                Request.Method.PUT,
+                url,
+                jsonRequest,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+                        listener.onSuccess("Actualización exitosa.");
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        listener.onError(error.getMessage());
+
+                    }
+                }
+        ) {
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Content-Type", "application/json");
+                headers.put("Authorization", "Basic a2lkX1NrbU5uS1VLTjo5N2I2YTk4Y2FhZDA0ZDg0ODdkZGVlMjY2ZTc3NmNkMQ==");
+
+                return headers;
+            }
+        };
+
+        volleyQueue.add(request);
 
     }
 }

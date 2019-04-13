@@ -75,7 +75,8 @@ public class GooglePushNotificationServiceImpl implements IGooglePushNotificatio
 
 			HttpEntity<String> entity = new HttpEntity<String>(json, headers);
 
-			ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
+			ResponseEntity<String> response = 
+					restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
 
 			LOGGER.info(response.getBody());
 
@@ -135,7 +136,8 @@ public class GooglePushNotificationServiceImpl implements IGooglePushNotificatio
 		GoogleCredential googleCredential = null;
 		try {
 
-			Resource resource = this.resoruceLoader.getResource(this.serviceAccount);
+			Resource resource = 
+					this.resoruceLoader.getResource(this.serviceAccount);
 
 			File file = resource.getFile();
 

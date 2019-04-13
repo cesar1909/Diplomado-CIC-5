@@ -24,7 +24,9 @@ public class PushNotificationMessageModel {
 	 */
 	private Map<String, String> data;
 
-	public PushNotificationMessageModel(String token, PushNotificationModel notification, Map<String, String> data) {
+	public PushNotificationMessageModel(String token, 
+			PushNotificationModel notification, 
+			Map<String, String> data) {
 
 		this.token = token;
 		this.notification = notification;
